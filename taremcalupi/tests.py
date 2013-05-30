@@ -3,6 +3,7 @@ from models import Address, CreditCard
 from models import User, AffiliateUser
 from models import AdminUser, Store
 from models import StoreLocation 
+from views import HomeController
 
 class AddressTest(TestCase):
     def test_should_have_user_as_addressable(self):
@@ -133,4 +134,10 @@ class AddressTest(TestCase):
             AdminUser.objects.create(email="%s@i.com" % i, name="a", last_name="b")
 
         self.assertEqual(AdminUser.objects.count_the_number_of_users(), 3)
+
+
+class ControllerTest(TestCase):
+    def test_al_abrir_home_retorna_200(self):
+        home = HomeController()
+        self.assertEqual(home.get({}).status_code, 200)
 
