@@ -1,5 +1,5 @@
 <a href="{% url 'user_add' %}">Adicionar un usuario</a>
-{% for object in object_list %}
-  <a href="{{ object.get_absolute_url }}">{{ object }}</a>
-  <a href="{{ object.get_absolute_url_for_delete }}">Delete</a>
+{% for usuario in object_list %}
+  <a href="{{ usuario.direccion_para_actulizar }}">{{ usuario }}</a>
+  <a href="{{ usuario.direccion_para_eliminar }}">Delete</a>
 {% endfor %}

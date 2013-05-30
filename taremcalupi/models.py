@@ -23,10 +23,10 @@ class User(models.Model):
     last_name = models.CharField(max_length=30)  
     objects = UserManager()
     
-    def get_absolute_url(self):
+    def direccion_para_actualizar(self):
         return reverse_lazy('user_update', args=[self.pk])
 
-    def get_absolute_url_for_delete(self):
+    def direccion_para_eliminar(self):
         return reverse_lazy('user_delete', args=[self.pk])
 
     @property
