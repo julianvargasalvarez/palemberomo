@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <ul>
-    {% for i in numeros %}
-      <li>{{ i }}</li>
+<h1>{{ nombre }} {{ apellido }}</h1>
+{{ telefono }}
+<ul>
+    {% for lenguaje in lenguajes %}
+      <li>{{ lenguaje }}</li>
     {% endfor %}
-    <ul>
+</ul>
+<ol>
+    {% for sistema_operativo in sistemas_operativos %}
+      <li>{{ sistema_operativo }}</li>
+    {% endfor %}
+</ol>
 {% endblock %}

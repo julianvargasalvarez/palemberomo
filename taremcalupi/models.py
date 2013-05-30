@@ -16,7 +16,7 @@ class UserManager(models.Manager):
     pass
 
 class User(models.Model):
-    pass
+    name = models.CharField(max_length=30)
 
 class AffiliateUser(models.Model):
     pass
