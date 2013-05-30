@@ -1,17 +1,9 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from taremcalupi.views import UserCreate, UserUpdate, UserDelete, UserList
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'palemberomo.views.home', name='home'),
-    # url(r'^palemberomo/', include('palemberomo.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', UserList.as_view(), name='user_list'),
+    url(r'user/add/$', UserCreate.as_view(), name='user_add'),
+    url(r'user/(?P<pk>\d+)/$', UserUpdate.as_view(), name='user_update'),
+    url(r'user/(?P<pk>\d+)/delete/$', UserDelete.as_view(), name='user_delete'),
 )

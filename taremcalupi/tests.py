@@ -2,7 +2,9 @@ from django.test import TestCase
 from models import Address, CreditCard
 from models import User, AffiliateUser
 from models import AdminUser, Store
-from models import StoreLocation 
+from models import StoreLocation
+
+from views import HomeController
 
 class AddressTest(TestCase):
     def test_should_have_user_as_addressable(self):
@@ -107,6 +109,7 @@ class AddressTest(TestCase):
         address_from_db = Address.objects.get(id=address.id)
         self.assertEqual(address_from_db.addressable_type.name, 'credit card')
 
+class ObjectManagerTest(TestCase):
     def test_should_count_the_users(self):
         """
         Prueba que se cuente el numero de usuarios
@@ -133,4 +136,12 @@ class AddressTest(TestCase):
             AdminUser.objects.create(email="%s@i.com" % i, name="a", last_name="b")
 
         self.assertEqual(AdminUser.objects.count_the_number_of_users(), 3)
+
+class ControllerTest(TestCase):
+    def test_home_retorna_200(self):
+        """
+        Prueba que la peticion al home sea exitosa
+        """
+        home = HomeController()
+        self.assertEqual(home.get({}).status_code, 200)
 
