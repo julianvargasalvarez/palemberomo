@@ -1,22 +1,43 @@
 body {
-background-color: #efefef;
-font-family: Arial, Helvetica, 'sans-serif';
-font-size: 16px;
+    background-color: #efefef;
+    font-family: Arial, Helvetica, 'sans-serif';
+    font-size: 16px;
 }
+
 label {
-display: block;
-margin-top: 1.375em;
+    display: block;
+    margin-top: 1.375em;
 }
+
 input[type='submit'] {
-display: block;
+    display: block;
 }
+
 table {
-background-color: #0971B2;
+    background-color: #0971B2 !important;
 }
+
+tr.pares {
+    background-color: white;
+}
+
+tr.nones {
+    background-color: red;
+}
+
+table {
+    font-family: 'Comics sans';
+    background-color: purple;
+}
+
 thead {
-background-color: #B21212;
+    background-color: #B21212;
 }
 
 tbody tr {
-background-color: #1485CC;
+    background-color: #1485CC;
+}
+
+li:nth-child(4n-7) {
+    background-color: purple;
 }
