@@ -2,19 +2,25 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView 
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse
-
+from django.core import serializers
 from models import User
 from forms import UserForm
 
 import json
 
+class UserJson(ListView):
+    model = User
+
+    def render_to_response(self, context, **response_kwargs):
+        response_kwargs['content_type'] = 'application/json'
+        data = self.model.objects.all()
+        serialized_data = serializers.serialize('json', data, fields=('id', 'email'))
+
+        return HttpResponse(serialized_data)
+
 class UserList(ListView):
     model = User
     template_name = 'user_list.html'
-
-    #def render_to_response(self, context, **response_kwargs):
-    #    response_kwargs['content_type'] = 'application/json'
-    #    return HttpResponse(json.dumps({'saludo': 'hola mundo'}))
 
 class UserCreate(CreateView):
     model = User

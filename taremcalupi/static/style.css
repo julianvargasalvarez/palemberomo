@@ -4,40 +4,41 @@ body {
     font-size: 16px;
 }
 
-label {
-    display: block;
-    margin-top: 1.375em;
-}
-
-input[type='submit'] {
-    display: block;
-}
-
 table {
-    background-color: #0971B2 !important;
 }
 
-tr.pares {
-    background-color: white;
+tr:nth-child(2n+1) {
 }
+
 
 tr.nones {
-    background-color: red;
 }
-
-table {
-    font-family: 'Comics sans';
-    background-color: purple;
-}
-
 thead {
-    background-color: #B21212;
+    
 }
 
-tbody tr {
-    background-color: #1485CC;
+tbody td:last-child {
+    text-align: center;
+}
+
+tbody tr:hover {
 }
 
 li:nth-child(4n-7) {
-    background-color: purple;
+}
+
+table a:hover {
+}
+.eliminar {
+}
+div.odd.algo {
+  font-size: 2em;
+}
+
+div.odd {
+  background-color: yellow;
+}
+
+div.algo {
+  font-weight: bolder;
 }
