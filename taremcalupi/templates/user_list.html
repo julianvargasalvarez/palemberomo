@@ -1,5 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <a href="{% url 'user_add' %}">Adicionar un usuario</a>
+<table>
+    <thead>
+        <tr>
+            <td>
+                email
+             </td>
+            <td>
+               nombre 
+             </td>
+            <td>
+               apellido
+             </td>
+            <td>
+              Eliminar 
+             </td>
+        </tr>
+    </thead>
+    <tbody>
 {% for usuario in object_list %}
-  <a href="{{ usuario.direccion_para_actulizar }}">{{ usuario }}</a>
-  <a href="{{ usuario.direccion_para_eliminar }}">Delete</a>
-{% endfor %}
+<tr>
+    <td>
+        <a href="{{ usuario.direccion_para_actualizar }}">{{ usuario.email }}</a>
+    </td>
+    <td>
+        {{ usuario.name }}
+    </td>
+    <td>
+        {{ usuario.last_name }}
+    </td>
+    <td>
+        <a href="{{ usuario.direccion_para_eliminar }}">Delete</a>
+    </td>
+ </tr>
+  {% endfor %}
+  
+  </tbody>
+</table>
+{% endblock %}
