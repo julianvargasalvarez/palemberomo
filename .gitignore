@@ -1,0 +1,13 @@
+*~
+*.DS_Store
+*.swp
+*.sln
+*.suo
+*.exe
+*.exe.config
+*.pdb
+*.exe.manifest
+*.exe.cache
+*bin/
+*un~
+*pyc
