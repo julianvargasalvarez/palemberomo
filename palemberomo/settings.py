@@ -114,6 +114,9 @@ ROOT_URLCONF = 'palemberomo.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'palemberomo.wsgi.application'
 
+# celery config
+BROKER_URL = "redis://:test@localhost:6379/2"
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -133,6 +136,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'djcelery',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -183,6 +187,12 @@ LOGGING = {
         },
     }
 }
+
+
+
+import djcelery
+djcelery.setup_loader()
+
 
 try:
     from local_settings import *
