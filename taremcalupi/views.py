@@ -5,8 +5,13 @@ from django.http import HttpResponse
 from django.core import serializers
 from models import User
 from forms import UserForm
+from django.views.generic.base import View as Controller
 
 import json
+
+class HomeController(Controller):
+    def get(self, request):
+        return HttpResponse("hola mundo")
 
 class UserJson(ListView):
     model = User
