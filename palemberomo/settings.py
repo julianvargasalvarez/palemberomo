@@ -115,7 +115,7 @@ ROOT_URLCONF = 'palemberomo.urls'
 WSGI_APPLICATION = 'palemberomo.wsgi.application'
 
 # celery config
-BROKER_URL = "redis://:test@localhost:6379/2"
+BROKER_URL = "redis://localhost:6379/10"
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

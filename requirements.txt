@@ -5,3 +5,4 @@ ipython==0.13.2
 south==0.8
 django-debug-toolbar==0.9.4
 django-celery==3.0.17
+celery-with-redis==3.0
