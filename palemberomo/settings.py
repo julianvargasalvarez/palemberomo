@@ -145,6 +145,11 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(levelname)s] %(asctime)s %(module)s %(message)s'
+        }
+    },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
@@ -155,11 +160,24 @@ LOGGING = {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'log_file': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': "/tmp/palemberomo.log",
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 4,
+            'formatter': 'verbose',
+        },
+        
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler'
+        },
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['mail_admins', 'log_file'],
             'level': 'ERROR',
             'propagate': True,
         },
