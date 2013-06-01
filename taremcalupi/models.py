@@ -37,11 +37,13 @@ class AffiliateUser(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=30)  
     last_name = models.CharField(max_length=30)  
+    objects = UserManager()
 
 class AdminUser(models.Model):
     email = models.EmailField()
     name = models.CharField(max_length=30)  
     last_name = models.CharField(max_length=30)  
+    objects = UserManager()
 
 class Store(models.Model):
     name = models.CharField(max_length=30)
